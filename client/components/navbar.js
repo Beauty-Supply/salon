@@ -14,6 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import Button from '@material-ui/core/Button'
 import history from '../history'
+//import SearchBar from './search_bar'
 
 const styles = theme => ({
   root: {
@@ -99,7 +100,9 @@ class Navbar extends React.Component {
             </Typography>
 
             <Button color="inherit">Pictures</Button>
-            <Button color="inherit">Videos</Button>
+            <Button color="inherit" onClick={() => history.push('/Video')}>
+              Video
+            </Button>
             <Button
               color="inherit"
               onClick={() => history.push('/schedule-appointement')}
@@ -120,6 +123,8 @@ class Navbar extends React.Component {
                   input: classes.inputInput
                 }}
               />
+
+              {/* <SearchBar /> */}
             </div>
           </Toolbar>
         </AppBar>
