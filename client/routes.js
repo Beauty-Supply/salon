@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import Appointement from './components/appointement'
-
+import Calendar from './components/calendar'
+import TimeSelector from './components/timeSelector'
 /**
  * COMPONENT
  */

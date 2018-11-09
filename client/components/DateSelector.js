@@ -32,7 +32,7 @@ class DateSelector extends React.Component {
     const {classes} = this.props
     console.log(this.state)
     return (
-      <form className={classes.container} noValidate>
+      <form className={classes.container}>
         <TextField
           onChange={this.handleChange}
           id="datetime-local"
