@@ -1,56 +1,57 @@
 import React from 'react'
-//import ReactDOM from 'react-dom'
+
 import axios from 'axios'
-//import {HashRouter, Route, Link, Switch, Redirect} from 'react-router-dom'
+
 import {Link} from 'react-router-dom'
+import {Container, Card, Image, Grid, Button, Icon} from 'semantic-ui-react'
 
 export default class Picture extends React.Component {
-  state = {
-    picture: {
-      name: 'image1',
-      imageUrl: 'images/image-1.jpeg',
-      faves: 100
+  constructor() {
+    super()
+    this.state = {
+      picture: []
     }
   }
   async componentDidMount() {
-    const pictureId = this.props.match.params.pictureId
-    const {data} = await axios.get(`/pictures/${pictureId}`)
-    this.setState({picture: data})
+    const res = await axios.get(`/api/picture`)
+    const pictures = res.data.pictures
+
+    this.setState({picture: pictures})
+    console.log('pic', pictures)
   }
-  async componentDidUpdate(prevProps) {
+  /*async componentDidUpdate(prevProps) {
     const latest = this.props.match.params.pictureId
     const prev = prevProps.match.params.pictureId
     if (latest !== prev) {
       const {data} = await axios.get(`/pictures/${latest}`)
       this.setState({picture: data})
     }
-  }
+  }*/
   render() {
-    // Remember, this comes from the Route! We want to do math with it,
-    // so we coerce it to a number (because it's a string originally)
     const pictureId = Number(this.props.match.params.pictureId)
-
-    // Calculates which picture to show next, or the previous one
-    const next = pictureId % 5 + 1
-    const prev = pictureId <= 1 ? 5 : pictureId - 1
 
     const {imageUrl, name, faves} = this.state.picture
 
+    console.log('IMG', this.state.picture)
+
     return (
-      <div id="gallery-item" className="fill">
-        <div id="image-wrapper">
-          <img src={imageUrl} />
-        </div>
-        <div id="image-details">
-          <Link to={`/gallery/${prev}`}>Prev</Link>
-          <p>{name}</p>
-          <div>
-            <div className="small gray">Faves: </div>
-            <div>{faves}</div>
-          </div>
-          <Link to={`/gallery/${next}`}>Next</Link>
-        </div>
-      </div>
+      // <Container>
+      <Grid>
+        <Grid.Row>
+          <Card.Group itemsPerRow={6}>
+            {this.state.picture.map(pic => (
+              <Card key={pic.id}>
+                <Image src={pic.imageUrl} />
+
+                <Card.Content>
+                  <Card.Header>{pic.name}</Card.Header>
+                </Card.Content>
+              </Card>
+            ))}
+          </Card.Group>
+        </Grid.Row>
+      </Grid>
+      // </Container>
     )
   }
 }
