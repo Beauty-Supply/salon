@@ -28,30 +28,30 @@ export default class Picture extends React.Component {
     }
   }*/
   render() {
-    const pictureId = Number(this.props.match.params.pictureId)
+    //const pictureId = Number(this.props.match.params.pictureId)
 
-    const {imageUrl, name, faves} = this.state.picture
+    //const {imageUrl, name, faves} = this.state.picture
 
     console.log('IMG', this.state.picture)
 
     return (
-      // <Container>
-      <Grid>
-        <Grid.Row>
-          <Card.Group itemsPerRow={6}>
-            {this.state.picture.map(pic => (
-              <Card key={pic.id}>
-                <Image src={pic.imageUrl} />
+      <Container>
+        <Grid>
+          <Grid.Row>
+            <Card.Group itemsPerRow={6}>
+              {this.state.picture.map(pic => (
+                <Card key={pic.id}>
+                  <Image src={pic.imageUrl} />
 
-                <Card.Content>
-                  <Card.Header>{pic.name}</Card.Header>
-                </Card.Content>
-              </Card>
-            ))}
-          </Card.Group>
-        </Grid.Row>
-      </Grid>
-      // </Container>
+                  <Card.Content>
+                    <Card.Header>{pic.name}</Card.Header>
+                  </Card.Content>
+                </Card>
+              ))}
+            </Card.Group>
+          </Grid.Row>
+        </Grid>
+      </Container>
     )
   }
 }
