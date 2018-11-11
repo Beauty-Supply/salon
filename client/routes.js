@@ -5,10 +5,7 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import Appointement from './components/appointement'
-
-import Calendar from './components/calendar'
-import TimeSelector from './components/timeSelector'
-
+import Location from './components/location'
 import Video from './components/Video'
 
 /**
@@ -29,6 +26,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/schedule-appointement" component={Appointement} />
         <Route path="/video" component={Video} />
+        <Route path="/directions" component={Location} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
