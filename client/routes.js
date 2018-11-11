@@ -12,7 +12,6 @@ import Picture from './components/picture'
 import Video from './components/Video'
 import Home from './components/home'
 
-
 /**
  * COMPONENT
  */
@@ -27,20 +26,19 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/schedule-appointement" component={Appointement} />
 
-        <Route path="/picture" component={Picture} />
+        <Route exact path="/picture" component={Picture} />
 
-
-        <Route path="/video" component={Video} />
+        <Route exact path="/video" component={Video} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            {/* <Route path="/home" component={UserHome} /> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
