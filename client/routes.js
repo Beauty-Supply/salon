@@ -1,11 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
+
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import Appointement from './components/appointement'
+
+import Picture from './components/picture'
+
 import Video from './components/Video'
+
 
 /**
  * COMPONENT
@@ -24,7 +29,12 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/schedule-appointement" component={Appointement} />
+
+        <Route path="/picture" component={Picture} />
+
+
         <Route path="/video" component={Video} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
