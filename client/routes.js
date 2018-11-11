@@ -6,6 +6,7 @@ import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import Appointement from './components/appointement'
 import Video from './components/Video'
+import Home from './components/home'
 
 /**
  * COMPONENT
@@ -21,6 +22,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/schedule-appointement" component={Appointement} />
