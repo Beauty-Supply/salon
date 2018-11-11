@@ -99,15 +99,15 @@ class Navbar extends React.Component {
               Aunty Salon
             </Typography>
 
-
             {/* <Button color="inherit">Pictures</Button> */}
+            <Button color="inherit" onClick={() => history.push('/')}>
+              Home
+            </Button>
 
             <Button color="inherit" onClick={() => history.push('/picture')}>
               Pictures
             </Button>
-            
 
-     
             <Button color="inherit" onClick={() => history.push('/Video')}>
               Video
             </Button>
