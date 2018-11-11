@@ -1,5 +1,5 @@
 {
-  "name": "boilermaker",
+  "name": "salon",
   "version": "1.0.0",
   "description": "Some boilerplate code to get you started - get shakin'!",
   "engines": {
@@ -42,6 +42,7 @@
     "axios": "^0.15.3",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.3",
     "express-session": "^1.15.1",
     "history": "^4.6.3",
@@ -59,7 +60,9 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.3.0",
     "sequelize": "^4.38.0",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "twilio": "^3.23.2",
+    "youtube-api-search": "0.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.55",
