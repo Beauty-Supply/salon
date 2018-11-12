@@ -104,7 +104,7 @@ class Navbar extends React.Component {
               Home
             </Button>
 
-            <Button color="inherit" onClick={() => history.push('/picture')}>
+            <Button color="inherit" onClick={() => history.push('/pictures')}>
               Pictures
             </Button>
 
@@ -118,7 +118,9 @@ class Navbar extends React.Component {
             >
               Appointement
             </Button>
-            <Button color="inherit">Location</Button>
+            <Button onClick={() => history.push('/directions')} color="inherit">
+              Location
+            </Button>
 
             <div className={classes.grow} />
             <div className={classes.search}>

@@ -6,8 +6,9 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import Appointement from './components/appointement'
+import Location from './components/location'
 
-import Picture from './components/picture'
+import Pictures from './components/pictures'
 
 import Video from './components/Video'
 import Home from './components/home'
@@ -27,13 +28,15 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
+        <Route exact path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/schedule-appointement" component={Appointement} />
+        <Route exact path="/schedule-appointement" component={Appointement} />
 
-        <Route exact path="/picture" component={Picture} />
+        <Route exact path="/pictures" component={Pictures} />
 
         <Route exact path="/video" component={Video} />
+        <Route exact path="/directions" component={Location} />
+
 
         {isLoggedIn && (
           <Switch>
