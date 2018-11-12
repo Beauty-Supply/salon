@@ -37,10 +37,11 @@ class Routes extends Component {
         <Route exact path="/video" component={Video} />
         <Route exact path="/directions" component={Location} />
 
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            {/* <Route path="/home" component={UserHome} /> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

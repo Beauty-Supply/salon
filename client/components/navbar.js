@@ -100,6 +100,9 @@ class Navbar extends React.Component {
             </Typography>
 
             {/* <Button color="inherit">Pictures</Button> */}
+            <Button color="inherit" onClick={() => history.push('/')}>
+              Home
+            </Button>
 
             <Button color="inherit" onClick={() => history.push('/pictures')}>
               Pictures
