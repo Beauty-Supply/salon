@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+//
+//
+import React from 'react'
 import Map from './map2'
-import NewMap from './map3'
 
 export default props => {
   return (
