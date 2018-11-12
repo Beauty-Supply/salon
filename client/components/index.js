@@ -5,4 +5,8 @@
  */
 //export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
+
+// export {default as Picture} from './picture'
+export {default as Video} from './Video'
 export {Login, Signup} from './auth-form'
+export {default as Picture} from './picture'
