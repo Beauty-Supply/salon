@@ -1,70 +1,63 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import {withStyles} from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import history from '../history'
+import {connect} from 'react-redux'
 
-import axios from 'axios'
-
-import {Link} from 'react-router-dom'
-import {Container, Card, Image, Grid, Segment} from 'semantic-ui-react'
-
-export default class Picture extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      picture: []
-    }
-  }
-  async componentDidMount() {
-    const res = await axios.get(`/api/picture`)
-    const pictures = res.data.pictures
-
-    this.setState({picture: pictures})
-    console.log('pic', pictures)
-  }
-
-  render() {
-    console.log('IMG', this.state.picture)
-
-    return (
-      // <Container>
-      //   <Grid>
-      //     <Grid.Row>
-      //       <Card.Group itemsPerRow={4}>
-      //         {this.state.picture.map(pic => (
-      //           <Card key={pic.id}>
-      //             <Image src={pic.imageUrl} />
-
-      //             <Card.Content>
-      //               <Card.Header>{pic.name}</Card.Header>
-      //             </Card.Content>
-      //           </Card>
-      //         ))}
-      //       </Card.Group>
-      //     </Grid.Row>
-      //   </Grid>
-      // </Container>
-
-      <Container>
-        <Grid>
-          <Container fluid>
-            <Segment>
-              <Grid.Row>
-                <Grid.Column width={2} />
-
-                <Grid.Column width={12}>
-                  <Image.Group size="medium">
-                    {this.state.picture.map(pic => (
-                      // {images &&
-                      //   images.map((image) => (
-                      <Image key={pic.id} src={pic.imageUrl} bordered />
-                    ))}
-                    {/* <Divider hidden /> */}
-                  </Image.Group>
-                </Grid.Column>
-                <Grid.Column width={2} />
-              </Grid.Row>
-            </Segment>
-          </Container>
-        </Grid>
-      </Container>
-    )
+const styles = {
+  card: {
+    width: 400,
+    height: 400
+  },
+  actionArea: {
+    height: 350
+  },
+  media: {
+    height: 'auto',
+    paddingTop: '56.25%' // 16:9
+  },
+  actions: {
+    display: 'flex'
   }
 }
+
+function MakeCard(props) {
+  const {classes, picture} = props
+
+  return (
+    <React.Fragment>
+      <Card className={classes.card} raised={false}>
+        <CardActionArea
+          className={classes.actionArea}
+          onClick={() => history.push(`/pictures/${picture.id}`)}
+        >
+          <CardMedia
+            className={classes.media}
+            image={picture.imageUrl}
+            title={picture.name}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {picture.name}
+            </Typography>
+            <Typography component="h2">$ {picture.price}</Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions />
+      </Card>
+    </React.Fragment>
+  )
+}
+
+MakeCard.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(MakeCard)
